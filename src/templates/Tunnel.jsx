@@ -31,7 +31,7 @@ export default function TunnelTemplate({ data }) {
 
   return (
     <div style={{ width: '100%', height: '100%', minHeight: '100vh', position: 'relative', backgroundColor: '#000000', color: '#00ffcc', overflow: 'hidden', fontFamily: "'Courier New', Courier, monospace" }}>
-      
+
       {/* 3D Background */}
       <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none', zIndex: 0 }}>
         <Canvas camera={{ position: [0, 0, 8] }}>
@@ -43,8 +43,8 @@ export default function TunnelTemplate({ data }) {
 
       {/* Foreground Content */}
       <div style={{ position: 'relative', zIndex: 10, height: '100%', overflowY: 'auto', padding: '10vh 40px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        
-        <motion.div 
+
+        <motion.div
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: 'easeOut' }}
@@ -59,7 +59,7 @@ export default function TunnelTemplate({ data }) {
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '40px' }}>
-            
+
             {/* Experience */}
             {data.experience && data.experience.length > 0 && (
               <div>

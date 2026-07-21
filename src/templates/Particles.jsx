@@ -22,7 +22,7 @@ export default function ParticlesTemplate({ data }) {
 
   return (
     <div style={{ width: '100%', height: '100%', minHeight: '100vh', position: 'relative', backgroundColor: '#050505', color: '#fff', overflow: 'hidden' }}>
-      
+
       {/* 3D Background */}
       <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none' }}>
         <Canvas camera={{ position: [0, 0, 1] }}>
@@ -33,8 +33,8 @@ export default function ParticlesTemplate({ data }) {
 
       {/* Foreground Content */}
       <div style={{ position: 'relative', zIndex: 10, height: '100%', overflowY: 'auto', padding: '10vh 20px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        
-        <motion.div 
+
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
@@ -44,14 +44,14 @@ export default function ParticlesTemplate({ data }) {
             {data.name}
           </h1>
           <div style={{ fontSize: '1.5rem', fontWeight: '300', color: '#aaa', letterSpacing: '2px', marginBottom: '30px' }}>{data.title}</div>
-          
+
           {data.summary && <p style={{ fontSize: '1.1rem', lineHeight: '1.8', color: '#ccc', margin: '0 auto', maxWidth: '600px' }}>{data.summary}</p>}
         </motion.div>
 
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '30px', justifyContent: 'center', maxWidth: '1000px', width: '100%' }}>
-          
+
           {data.experience && data.experience.length > 0 && (
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, delay: 0.3 }}
@@ -71,7 +71,7 @@ export default function ParticlesTemplate({ data }) {
           )}
 
           {data.projects && data.projects.length > 0 && (
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, delay: 0.5 }}
@@ -88,9 +88,9 @@ export default function ParticlesTemplate({ data }) {
           )}
 
         </div>
-        
+
         {data.skills && data.skills.length > 0 && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.7 }}

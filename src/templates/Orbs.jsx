@@ -8,14 +8,14 @@ export default function OrbsTemplate({ data }) {
 
   return (
     <div style={{ width: '100%', height: '100%', minHeight: '100vh', position: 'relative', backgroundColor: '#e2e8f0', color: '#0f172a', overflow: 'hidden' }}>
-      
+
       {/* 3D Background */}
       <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none', zIndex: 0 }}>
         <Canvas camera={{ position: [0, 0, 10] }}>
           <ambientLight intensity={1.5} />
           <directionalLight position={[10, 10, 5]} intensity={2} color="#ffffff" />
           <directionalLight position={[-10, -10, -5]} intensity={1} color="#3b82f6" />
-          
+
           <Float speed={2} rotationIntensity={1} floatIntensity={1.5} position={[3, 2, -2]}>
             <Sphere args={[2.5, 64, 64]}>
               <MeshDistortMaterial color="#ffffff" roughness={0.1} metalness={0.8} distort={0.2} speed={1.5} />
@@ -38,8 +38,8 @@ export default function OrbsTemplate({ data }) {
 
       {/* Foreground UI overlaid securely via higher zIndex */}
       <div style={{ position: 'relative', zIndex: 10, height: '100%', overflowY: 'auto', padding: '10vh 20px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        
-        <motion.div 
+
+        <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
@@ -52,7 +52,7 @@ export default function OrbsTemplate({ data }) {
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '40px' }}>
-            
+
             {/* Experience Block */}
             {data.experience && data.experience.length > 0 && (
               <div>

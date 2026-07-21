@@ -23,7 +23,12 @@ body {
   min-height: 100vh;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: #ffffff;
 }
 
@@ -145,8 +150,13 @@ a:hover {
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* Animations */
@@ -155,8 +165,15 @@ a:hover {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Custom Scrollbars */
@@ -192,7 +209,8 @@ a:hover {
     size: letter portrait;
   }
 
-  body, html {
+  body,
+  html {
     background-color: white !important;
     color: black !important;
     min-height: auto !important;
@@ -201,8 +219,10 @@ a:hover {
     padding: 0 !important;
     overflow: visible !important;
   }
-  
-  .preview-root, .preview-content-wrapper, .preview-content {
+
+  .preview-root,
+  .preview-content-wrapper,
+  .preview-content {
     height: auto !important;
     min-height: auto !important;
     overflow: visible !important;
@@ -212,7 +232,7 @@ a:hover {
   ::-webkit-scrollbar {
     display: none !important;
   }
-  
+
   * {
     scrollbar-width: none !important;
   }
@@ -244,7 +264,14 @@ a:hover {
   }
 
   /* Prevent Orphaned Headings: Force headings to stay with the following content */
-  h1, h2, h3, h4, h5, h6, .section-title, .resume-header {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .section-title,
+  .resume-header {
     break-after: avoid !important;
     page-break-after: avoid !important;
     break-inside: avoid !important;
@@ -252,7 +279,12 @@ a:hover {
   }
 
   /* Keep headings attached to the content element immediately following them */
-  h1 + *, h2 + *, h3 + *, h4 + *, h5 + *, h6 + * {
+  h1+*,
+  h2+*,
+  h3+*,
+  h4+*,
+  h5+*,
+  h6+* {
     break-before: avoid !important;
     page-break-before: avoid !important;
   }
@@ -263,7 +295,7 @@ a:hover {
   .print-exact li,
   .print-exact table,
   .print-exact tr,
-  .print-exact > div > div,
+  .print-exact>div>div,
   .resume-item,
   .experience-item,
   .education-item,

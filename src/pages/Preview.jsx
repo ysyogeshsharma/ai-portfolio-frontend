@@ -228,7 +228,7 @@ export default function Preview() {
 
   const [isEditing, setIsEditing] = useState(false);
   const scrollContainerRef = useRef(null);
-  
+
   const [builderType, setBuilderType] = useState(() => {
     const params = new URLSearchParams(window.location.search);
     const typeParam = params.get("type");
@@ -295,7 +295,7 @@ export default function Preview() {
       const encoded = btoa(encodeURIComponent(jsonStr).replace(/%([0-9A-F]{2})/g, (match, p1) => {
         return String.fromCharCode(parseInt(p1, 16));
       })).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
-      
+
       const baseDomain = liveDomain.trim() ? liveDomain.trim() : window.location.origin;
       let formattedDomain = baseDomain;
       if (formattedDomain && !/^https?:\/\//i.test(formattedDomain)) {
@@ -359,7 +359,7 @@ export default function Preview() {
         if (response.ok && result.data) {
           setPortfolioData(result.data.portfolioData);
           setActiveTemplate(result.data.templateId);
-          
+
           // Pre-populate share link
           const baseDomain = liveDomain.trim() ? liveDomain.trim() : window.location.origin;
           let formattedDomain = baseDomain;
@@ -415,15 +415,15 @@ export default function Preview() {
 
   if (loadingDb) {
     return (
-      <div 
-        style={{ 
-          height: "100vh", 
-          display: "flex", 
-          flexDirection: "column", 
-          justifyContent: "center", 
-          alignItems: "center", 
-          backgroundColor: "#0d1117", 
-          color: "#fff" 
+      <div
+        style={{
+          height: "100vh",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundColor: "#0d1117",
+          color: "#fff"
         }}
       >
         <div className="loading-spinner" style={{ width: "40px", height: "40px", marginBottom: "16px" }}></div>
@@ -948,7 +948,7 @@ export default function Preview() {
           >
             <Download size={14} /> Save as PDF
           </button>
-          
+
           <div style={{ width: "1px", height: "20px", backgroundColor: "var(--border-color)" }}></div>
 
           <a
@@ -1072,11 +1072,11 @@ export default function Preview() {
                 &times;
               </button>
             </div>
-            
+
             {/* 1. Permanent Database Link Section */}
             {!dbPublishLink ? (
               <div style={{ textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center" }}>
-                <div 
+                <div
                   className="float-container"
                   style={{
                     width: "80px",
@@ -1093,24 +1093,24 @@ export default function Preview() {
                 >
                   <Globe size={40} style={{ color: "var(--primary-color)" }} />
                 </div>
-                
+
                 <h4 style={{ fontSize: "16px", color: "#fff", fontWeight: "600", marginBottom: "8px" }}>
                   Create a Shareable Web Link
                 </h4>
                 <p style={{ color: "#8b949e", fontSize: "13.5px", marginBottom: "24px", lineHeight: "1.6", maxWidth: "380px" }}>
                   Publish your portfolio to our cloud database. You will get a unique, clean link that anyone can visit to see your site.
                 </p>
-                
+
                 {publishError && (
-                  <div style={{ 
-                    display: "flex", 
-                    alignItems: "center", 
-                    gap: "8px", 
-                    backgroundColor: "rgba(255, 123, 114, 0.1)", 
-                    border: "1px solid rgba(255, 123, 114, 0.2)", 
-                    borderRadius: "8px", 
-                    padding: "12px", 
-                    width: "100%", 
+                  <div style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "8px",
+                    backgroundColor: "rgba(255, 123, 114, 0.1)",
+                    border: "1px solid rgba(255, 123, 114, 0.2)",
+                    borderRadius: "8px",
+                    padding: "12px",
+                    width: "100%",
                     marginBottom: "16px",
                     color: "#ff7b72",
                     fontSize: "13px",
@@ -1165,7 +1165,7 @@ export default function Preview() {
             ) : (
               <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
                 <div style={{ textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center", marginBottom: "8px" }}>
-                  <div 
+                  <div
                     style={{
                       width: "60px",
                       height: "60px",
@@ -1188,12 +1188,12 @@ export default function Preview() {
                   </p>
                 </div>
 
-                <div 
-                  style={{ 
-                    display: "flex", 
-                    gap: "8px", 
-                    backgroundColor: "rgba(0,0,0,0.2)", 
-                    padding: "8px", 
+                <div
+                  style={{
+                    display: "flex",
+                    gap: "8px",
+                    backgroundColor: "rgba(0,0,0,0.2)",
+                    padding: "8px",
                     borderRadius: "12px",
                     border: "1px solid var(--border-color)",
                     alignItems: "center"
@@ -1273,9 +1273,9 @@ export default function Preview() {
                   <button
                     onClick={() => setDbPublishLink("")}
                     className="btn-secondary"
-                    style={{ 
-                      padding: "12px", 
-                      fontSize: "14px", 
+                    style={{
+                      padding: "12px",
+                      fontSize: "14px",
                       borderRadius: "10px",
                       display: "flex",
                       alignItems: "center",
@@ -1312,21 +1312,21 @@ export default function Preview() {
                 }}
               >
                 <span>Advanced Options (Client-only URL)</span>
-                <ChevronDown 
-                  size={14} 
-                  style={{ 
+                <ChevronDown
+                  size={14}
+                  style={{
                     transform: showAdvanced ? "rotate(180deg)" : "rotate(0deg)",
-                    transition: "transform 0.2s ease-in-out" 
-                  }} 
+                    transition: "transform 0.2s ease-in-out"
+                  }}
                 />
               </button>
 
               {showAdvanced && (
-                <div 
-                  style={{ 
-                    marginTop: "12px", 
-                    padding: "16px", 
-                    backgroundColor: "rgba(0,0,0,0.15)", 
+                <div
+                  style={{
+                    marginTop: "12px",
+                    padding: "16px",
+                    backgroundColor: "rgba(0,0,0,0.15)",
                     borderRadius: "12px",
                     border: "1px solid rgba(255,255,255,0.05)",
                     animation: "modalSlideUp 0.2s ease-out"

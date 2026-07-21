@@ -11,35 +11,35 @@ function SpiralGalaxy() {
     const numPoints = 15000;
     const positions = new Float32Array(numPoints * 3);
     const colors = new Float32Array(numPoints * 3);
-    
+
     const colorInside = new THREE.Color('#ff0055');
     const colorOutside = new THREE.Color('#3300ff');
 
     for (let i = 0; i < numPoints; i++) {
-        const i3 = i * 3;
-        
-        // Randomization mapping onto a spiral
-        const radius = Math.random() * 12;
-        const spinAngle = radius * 1.5;
-        const branchAngle = ((i % 3) / 3) * Math.PI * 2;
-        
-        const randomX = Math.pow(Math.random(), 2) * (Math.random() < 0.5 ? 1 : -1) * 0.5;
-        const randomY = Math.pow(Math.random(), 2) * (Math.random() < 0.5 ? 1 : -1) * 0.5;
-        const randomZ = Math.pow(Math.random(), 2) * (Math.random() < 0.5 ? 1 : -1) * 0.5;
+      const i3 = i * 3;
 
-        positions[i3] = Math.cos(branchAngle + spinAngle) * radius + randomX;
-        positions[i3 + 1] = randomY;
-        positions[i3 + 2] = Math.sin(branchAngle + spinAngle) * radius + randomZ;
-        
-        // Color mapping
-        const mixedColor = colorInside.clone();
-        mixedColor.lerp(colorOutside, radius / 12);
-        
-        colors[i3] = mixedColor.r;
-        colors[i3+1] = mixedColor.g;
-        colors[i3+2] = mixedColor.b;
+      // Randomization mapping onto a spiral
+      const radius = Math.random() * 12;
+      const spinAngle = radius * 1.5;
+      const branchAngle = ((i % 3) / 3) * Math.PI * 2;
+
+      const randomX = Math.pow(Math.random(), 2) * (Math.random() < 0.5 ? 1 : -1) * 0.5;
+      const randomY = Math.pow(Math.random(), 2) * (Math.random() < 0.5 ? 1 : -1) * 0.5;
+      const randomZ = Math.pow(Math.random(), 2) * (Math.random() < 0.5 ? 1 : -1) * 0.5;
+
+      positions[i3] = Math.cos(branchAngle + spinAngle) * radius + randomX;
+      positions[i3 + 1] = randomY;
+      positions[i3 + 2] = Math.sin(branchAngle + spinAngle) * radius + randomZ;
+
+      // Color mapping
+      const mixedColor = colorInside.clone();
+      mixedColor.lerp(colorOutside, radius / 12);
+
+      colors[i3] = mixedColor.r;
+      colors[i3 + 1] = mixedColor.g;
+      colors[i3 + 2] = mixedColor.b;
     }
-    
+
     return [positions, colors];
   }, []);
 
@@ -66,7 +66,7 @@ export default function VortexTemplate({ data }) {
 
   return (
     <div style={{ width: '100%', height: '100%', minHeight: '100vh', position: 'relative', backgroundColor: '#020005', color: '#fff', overflow: 'hidden' }}>
-      
+
       {/* 3D Vortex Background */}
       <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none' }}>
         <Canvas camera={{ position: [0, 4, 10], fov: 60 }}>
@@ -76,8 +76,8 @@ export default function VortexTemplate({ data }) {
 
       {/* Extreme Glass UI Overlay */}
       <div style={{ position: 'relative', zIndex: 10, height: '100%', overflowY: 'auto', padding: '10vh 20px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        
-        <motion.div 
+
+        <motion.div
           initial={{ opacity: 0, scale: 0.9, rotateX: 10 }}
           animate={{ opacity: 1, scale: 1, rotateX: 0 }}
           transition={{ duration: 1.2, type: 'spring' }}
@@ -87,11 +87,11 @@ export default function VortexTemplate({ data }) {
             {data.name}
           </h1>
           <h2 style={{ fontSize: '1.5rem', fontWeight: '400', color: '#d1d5db', letterSpacing: '4px', textTransform: 'uppercase', marginBottom: '30px' }}>{data.title}</h2>
-          
+
           {data.summary && <p style={{ fontSize: '1.1rem', lineHeight: '1.8', color: '#9ca3af', margin: '0 auto', maxWidth: '650px' }}>{data.summary}</p>}
-          
+
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px', marginTop: '50px', textAlign: 'left' }}>
-            
+
             {data.experience && data.experience.length > 0 && (
               <div style={{ backgroundColor: 'rgba(0,0,0,0.4)', padding: '30px', borderRadius: '20px', borderLeft: '4px solid #ff0055' }}>
                 <h3 style={{ fontSize: '1.5rem', fontWeight: '800', color: '#ff0055', marginBottom: '20px' }}>Experience</h3>

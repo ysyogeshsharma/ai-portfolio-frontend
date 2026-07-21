@@ -52,7 +52,7 @@ export default function CubeGridTemplate({ data }) {
 
   return (
     <div style={{ width: '100%', height: '100%', minHeight: '100vh', position: 'relative', backgroundColor: '#e0e7ff', color: '#1e3a8a', overflow: 'hidden' }}>
-      
+
       {/* 3D Glass Cubes */}
       <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none' }}>
         <Canvas camera={{ position: [0, 0, 15], fov: 45 }}>
@@ -64,8 +64,8 @@ export default function CubeGridTemplate({ data }) {
       </div>
 
       <div style={{ position: 'relative', zIndex: 10, height: '100%', overflowY: 'auto', padding: '10vh 20px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        
-        <motion.div 
+
+        <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -78,7 +78,7 @@ export default function CubeGridTemplate({ data }) {
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '40px' }}>
-            
+
             {data.experience && data.experience.length > 0 && (
               <div>
                 <h2 style={{ fontSize: '1.8rem', fontWeight: '800', color: '#1e3a8a', marginBottom: '25px', display: 'flex', alignItems: 'center', gap: '10px' }}>
