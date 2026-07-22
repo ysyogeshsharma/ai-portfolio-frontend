@@ -63,6 +63,7 @@ const templateMap = {
   // Portfolios
   creative3d: Creative3DTemplate,
   Creative3D2: Creative3D2,
+  techatma: Creative3D2,
   developer: DeveloperTemplate,
   minimalist: MinimalistTemplate,
   corporate: CorporateTemplate,
@@ -86,6 +87,15 @@ const templateMap = {
   ethereal: EtherealTemplate,
 };
 
+const ensureAbsoluteUrl = (url) => {
+  if (!url) return "";
+  const trimmed = url.trim();
+  if (!trimmed) return "";
+  if (/^(f|ht)tps?:\/\//i.test(trimmed)) return trimmed;
+  if (/^(mailto|tel):/i.test(trimmed)) return trimmed;
+  return `https://${trimmed}`;
+};
+
 export default function TemplateRenderer({ templateId, data }) {
   const TemplateComponent = templateMap[templateId];
 
@@ -97,16 +107,36 @@ export default function TemplateRenderer({ templateId, data }) {
     );
   }
 
+  // Sanitize contact links to make sure they are absolute URLs
+  let sanitizedData = data;
+  if (data && data.contact) {
+    sanitizedData = {
+      ...data,
+      contact: {
+        ...data.contact,
+        linkedin: ensureAbsoluteUrl(data.contact.linkedin),
+        github: ensureAbsoluteUrl(data.contact.github),
+      }
+    };
+  }
+
   // Resume templates need a wrapper and gray background
   const isResume = templateId.startsWith("resume_");
 
   if (isResume) {
     return (
-      <div className="resume-wrapper print-exact" style={{ padding: "40px 0", backgroundColor: "#525659", minHeight: "100vh" }}>
-        <TemplateComponent data={data} />
+      <div style={{ width: "100%", height: "100%", overflowY: "auto", overflowX: "hidden" }}>
+        <div className="resume-wrapper print-exact" style={{ padding: "40px 0", backgroundColor: "#525659", minHeight: "100%" }}>
+          <TemplateComponent data={sanitizedData} />
+        </div>
       </div>
     );
   }
 
-  return <TemplateComponent data={data} />;
+  // Portfolio templates: full-height scroll container
+  return (
+    <div style={{ width: "100%", height: "100%", overflowY: "auto", overflowX: "hidden" }}>
+      <TemplateComponent data={sanitizedData} />
+    </div>
+  );
 }

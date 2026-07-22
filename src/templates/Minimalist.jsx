@@ -48,7 +48,7 @@ export default function MinimalistTemplate({ data }) {
   if (!data) return null;
 
   return (
-    <div style={{ position: 'relative', width: '100%', minHeight: '100vh', overflowX: 'hidden', color: '#333', fontFamily: "'Inter', sans-serif" }}>
+    <div style={{ position: 'relative', width: '100%', minHeight: '100vh', overflowX: 'clip', color: '#333', fontFamily: "'Inter', sans-serif" }}>
       <MinimalScene />
       
       <div style={{ position: 'relative', zIndex: 10, maxWidth: '900px', margin: '0 auto', padding: '80px 20px', display: 'flex', flexDirection: 'column', gap: '60px' }}>

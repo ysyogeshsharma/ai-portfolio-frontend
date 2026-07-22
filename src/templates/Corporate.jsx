@@ -77,7 +77,7 @@ export default function CorporateTemplate({ data }) {
   if (!data) return null;
 
   return (
-    <div className="font-sans" style={{ position: 'relative', width: '100%', minHeight: '100vh', overflowX: 'hidden', color: '#f8fafc', display: 'flex', flexDirection: 'column' }}>
+    <div className="font-sans" style={{ position: 'relative', width: '100%', minHeight: '100vh', overflowX: 'clip', color: '#f8fafc', display: 'flex', flexDirection: 'column' }}>
       <CorporateScene />
       
       {/* Sidebar Navigation */}

@@ -97,7 +97,7 @@ export default function CyberMatrixTemplate({ data }) {
   const allSkills = data.skills || ["React", "Three.js", "WebGL", "TypeScript", "Node.js", "Python", "GraphQL", "AWS", "Docker", "Cybersecurity"];
 
   return (
-    <div style={{ backgroundColor: "#020617", color: "#e2e8f0", fontFamily: "'Space Grotesk', 'Inter', sans-serif", width: "100%", minHeight: "100vh", position: "relative", overflowX: "hidden" }}>
+    <div style={{ backgroundColor: "#020617", color: "#e2e8f0", fontFamily: "'Space Grotesk', 'Inter', sans-serif", width: "100%", minHeight: "100vh", position: "relative", overflowX: "clip" }}>
       
       {/* 3D Cyber Background */}
       <div style={{ position: "fixed", inset: 0, zIndex: 0, pointerEvents: "none" }}>

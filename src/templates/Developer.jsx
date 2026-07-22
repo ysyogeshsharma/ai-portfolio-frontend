@@ -56,7 +56,7 @@ export default function DeveloperTemplate({ data }) {
   };
 
   return (
-    <div style={{ position: 'relative', width: '100%', minHeight: '100vh', overflowX: 'hidden', backgroundColor: '#050505', color: '#00ff41', fontFamily: "'Fira Code', 'Courier New', monospace" }}>
+    <div style={{ position: 'relative', width: '100%', minHeight: '100vh', overflowX: 'clip', backgroundColor: '#050505', color: '#00ff41', fontFamily: "'Fira Code', 'Courier New', monospace" }}>
       <WireframeScene />
       
       <div style={{ position: 'relative', zIndex: 10, maxWidth: '1000px', margin: '0 auto', padding: '60px 20px', display: 'flex', flexDirection: 'column', gap: '30px' }}>

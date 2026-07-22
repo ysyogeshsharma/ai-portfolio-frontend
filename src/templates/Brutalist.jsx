@@ -48,7 +48,7 @@ export default function BrutalistTemplate({ data }) {
   if (!data) return null;
 
   return (
-    <div style={{ position: 'relative', width: '100%', minHeight: '100vh', color: '#111', fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif", overflowX: 'hidden' }}>
+    <div style={{ position: 'relative', width: '100%', minHeight: '100vh', color: '#111', fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif", overflowX: 'clip' }}>
       <BrutalistScene />
       
       <div style={{ position: 'relative', zIndex: 10, padding: '50px', display: 'flex', flexDirection: 'column', gap: '50px' }}>

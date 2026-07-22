@@ -41,7 +41,7 @@ export default function Creative3D({ data }) {
   if (!data) return null;
 
   return (
-    <div className="relative w-full min-h-screen bg-slate-950 text-white overflow-x-hidden font-sans">
+    <div className="relative w-full min-h-screen bg-slate-950 text-white font-sans" style={{ overflowX: 'clip' }}>
 
       {/* 3D Canvas Background */}
       <div className="fixed inset-0 z-0 pointer-events-none">

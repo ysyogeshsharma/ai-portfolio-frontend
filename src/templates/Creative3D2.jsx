@@ -116,7 +116,7 @@ export default function Creative3D2({ data }) {
   };
 
   return (
-    <div style={{ backgroundColor: "#060913", color: "#f8fafc", fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif", width: "100%", minHeight: "100vh", position: "relative", overflowX: "hidden" }}>
+    <div style={{ backgroundColor: "#060913", color: "#f8fafc", fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif", width: "100%", minHeight: "100vh", position: "relative", overflowX: "clip" }}>
       
       {/* 3D Premium Background */}
       <div style={{ position: "fixed", inset: 0, zIndex: 0, pointerEvents: "none" }}>

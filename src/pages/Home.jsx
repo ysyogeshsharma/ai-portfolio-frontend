@@ -149,6 +149,14 @@ export default function Home() {
     setFormData({ ...formData, template: type === 'resume' ? 'resume_classic' : 'creative3d' });
   };
 
+  const ensureAbsoluteUrl = (url) => {
+    if (!url) return '';
+    const trimmed = url.trim();
+    if (!trimmed) return '';
+    if (/^(f|ht)tps?:\/\//i.test(trimmed)) return trimmed;
+    return `https://${trimmed}`;
+  };
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -169,7 +177,7 @@ export default function Home() {
     setError('');
 
     try {
-      const payload = { ...formData, experiences, builderType };
+      const payload = { ...formData, experiences, builderType, linkedin: ensureAbsoluteUrl(formData.linkedin) };
       const response = await fetch(`${API_BASE_URL}/generate`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -212,7 +220,7 @@ export default function Home() {
   };
 
   return (
-    <div className="container flex-center" style={{ minHeight: '100vh', flexDirection: 'column' }}>
+    <div className="container flex-center" style={{ minHeight: '100%', height: '100%', flexDirection: 'column', overflowY: 'auto' }}>
       
       <div style={{ textAlign: 'center', marginBottom: '40px' }} className="fade-in">
         <h1 className="gradient-text" style={{ fontSize: '3rem', marginBottom: '10px' }}>
@@ -298,7 +306,7 @@ export default function Home() {
             <div style={{ display: 'flex', gap: '20px', marginBottom: '20px' }}>
               <div style={{ flex: 1 }}>
                 <label className="form-label">LinkedIn URL</label>
-                <input type="text" name="linkedin" className="form-input" placeholder="linkedin.com/in/johndoe" value={formData.linkedin} onChange={handleChange} />
+                <input type="text" name="linkedin" className="form-input" placeholder="https://linkedin.com/in/johndoe" value={formData.linkedin} onChange={handleChange} />
               </div>
               <div style={{ flex: 1 }}>
                 <label className="form-label">Mobile Number</label>

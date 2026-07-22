@@ -71,7 +71,7 @@ export default function EtherealTemplate({ data }) {
   const allSkills = data.skills || ["UI/UX Design", "React", "Figma", "Interaction Design", "Framer Motion", "Tailwind CSS", "CSS3", "Typography", "Branding"];
 
   return (
-    <div style={{ backgroundColor: "#fdfdfd", color: "#334155", fontFamily: "'Outfit', 'Inter', sans-serif", width: "100%", minHeight: "100vh", position: "relative", overflowX: "hidden" }}>
+    <div style={{ backgroundColor: "#fdfdfd", color: "#334155", fontFamily: "'Outfit', 'Inter', sans-serif", width: "100%", minHeight: "100vh", position: "relative", overflowX: "clip" }}>
       
       {/* 3D Ethereal Background */}
       <div style={{ position: "fixed", inset: 0, zIndex: 0, pointerEvents: "none", opacity: 0.7 }}>
