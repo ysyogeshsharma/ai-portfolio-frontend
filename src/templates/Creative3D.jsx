@@ -41,7 +41,7 @@ export default function Creative3D({ data }) {
   if (!data) return null;
 
   return (
-    <div className="relative w-full min-h-screen bg-slate-950 text-white overflow-y-hidden font-sans">
+    <div className="relative w-full min-h-screen bg-slate-950 text-white overflow-x-hidden font-sans">
 
       {/* 3D Canvas Background */}
       <div className="fixed inset-0 z-0 pointer-events-none">
@@ -148,7 +148,7 @@ export default function Creative3D({ data }) {
             <h3 className="text-4xl font-bold">Featured Works</h3>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 !mb-10">
             {data.projects?.map((proj, idx) => (
               <motion.div
                 key={idx}

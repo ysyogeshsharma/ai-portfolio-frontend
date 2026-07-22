@@ -23,7 +23,10 @@ const PORTFOLIO_TEMPLATES = [
   { id: 'tunnel', name: 'Wireframe Tunnel', desc: 'Retro hacker geometric meshes' },
   { id: 'vortex', name: 'Vortex Galaxy', desc: 'A procedurally generated spiraling black hole' },
   { id: 'cubegrid', name: 'Cube Grid', desc: 'Sleek interactive floating isometric cubes' },
-  { id: 'lowpoly', name: 'Synthwave Terrain', desc: 'Wireframe mountains with retro colors' }
+  { id: 'lowpoly', name: 'Synthwave Terrain', desc: 'Wireframe mountains with retro colors' },
+  { id: 'techatma', name: 'TechAtma Pro', desc: 'Clean corporate layout with timelines, stats & cards' },
+  { id: 'cybermatrix', name: 'CyberMatrix', desc: 'High-tech hacker matrix with 3D particles' },
+  { id: 'ethereal', name: 'Ethereal', desc: 'Clean, light theme with fluid waving spheres' }
 ];
 
 const RESUME_TEMPLATES = [

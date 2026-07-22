@@ -36,6 +36,9 @@ import CleanResume from "../templates/CleanResume";
 import BoldResume from "../templates/BoldResume";
 import TwoColumnMinimal from "../templates/TwoColumnMinimal";
 import ChronologicalPro from "../templates/ChronologicalPro";
+import Creative3D2 from "../templates/Creative3D2";
+import CyberMatrixTemplate from "../templates/CyberMatrix";
+import EtherealTemplate from "../templates/Ethereal";
 
 const templateMap = {
   // Resumes
@@ -59,6 +62,7 @@ const templateMap = {
 
   // Portfolios
   creative3d: Creative3DTemplate,
+  Creative3D2: Creative3D2,
   developer: DeveloperTemplate,
   minimalist: MinimalistTemplate,
   corporate: CorporateTemplate,
@@ -78,6 +82,8 @@ const templateMap = {
   vortex: VortexTemplate,
   cubegrid: CubeGridTemplate,
   lowpoly: LowPolyTemplate,
+  cybermatrix: CyberMatrixTemplate,
+  ethereal: EtherealTemplate,
 };
 
 export default function TemplateRenderer({ templateId, data }) {

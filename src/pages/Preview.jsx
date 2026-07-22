@@ -20,6 +20,7 @@ import TunnelTemplate from "../templates/Tunnel";
 import VortexTemplate from "../templates/Vortex";
 import CubeGridTemplate from "../templates/CubeGrid";
 import LowPolyTemplate from "../templates/LowPoly";
+import Creative3D2 from "../templates/Creative3D2";
 import ClassicResume from "../templates/ClassicResume";
 import ModernResume from "../templates/ModernResume";
 import TechResume from "../templates/TechResume";
@@ -102,6 +103,24 @@ const PORTFOLIO_TEMPLATES = [
     Icon: Mountain,
     color: "#ff00cc",
     label: "Synthwave Terrain",
+  },
+  {
+    id: "techatma",
+    Icon: Briefcase,
+    color: "#2563eb",
+    label: "TechAtma Pro",
+  },
+  {
+    id: "cybermatrix",
+    Icon: Terminal,
+    color: "#00ffcc",
+    label: "CyberMatrix",
+  },
+  {
+    id: "ethereal",
+    Icon: Sun,
+    color: "#f87171",
+    label: "Ethereal",
   },
 ];
 
@@ -439,7 +458,7 @@ export default function Preview() {
   return (
     <div
       className="preview-root"
-      style={{ height: "100vh", display: "flex", flexDirection: "column" }}
+      style={{ height: "100vh", width: "100%", display: "flex", flexDirection: "column", overflow: "hidden" }}
     >
       {!isViewerMode && (
         <>
@@ -672,7 +691,7 @@ export default function Preview() {
 
       <div
         className="preview-content-wrapper"
-        style={{ display: "flex", flex: 1, overflow: "hidden" }}
+        style={{ display: "flex", flex: 1, minHeight: 0, overflow: "hidden" }}
       >
         {isEditing && (
           <div
@@ -682,6 +701,8 @@ export default function Preview() {
               borderRight: "1px solid var(--border-color)",
               backgroundColor: "#010409",
               flexShrink: 0,
+              height: "100%",
+              overflow: "hidden",
             }}
           >
             <DataEditorSidebar
@@ -694,7 +715,7 @@ export default function Preview() {
 
         <div
           className="preview-content"
-          style={{ flex: 1, overflowY: "auto", position: "relative" }}
+          style={{ flex: 1, height: "100%", overflowY: "auto", overflowX: "hidden", position: "relative" }}
         >
           {activeTemplate === "resume_classic" && (
             <div
@@ -883,6 +904,9 @@ export default function Preview() {
           )}
           {activeTemplate === "lowpoly" && (
             <LowPolyTemplate data={portfolioData} />
+          )}
+          {activeTemplate === "techatma" && (
+            <Creative3D2 data={portfolioData} />
           )}
         </div>
       </div>
