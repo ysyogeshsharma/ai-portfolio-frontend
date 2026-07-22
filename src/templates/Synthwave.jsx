@@ -1,9 +1,9 @@
 import React, { useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls, Grid, Sphere } from '@react-three/drei';
+import { OrbitControls, Sphere } from '@react-three/drei';
 import { motion } from 'framer-motion';
 
-function SynthScene() {
+function MovingGrid() {
   const gridRef = useRef();
   
   useFrame((state) => {
@@ -14,6 +14,14 @@ function SynthScene() {
     }
   });
 
+  return (
+    <group ref={gridRef}>
+      <gridHelper args={[50, 50, "#ff00ff", "#00ffff"]} position={[0, -2, -10]} rotation={[0, 0, 0]} />
+    </group>
+  );
+}
+
+function SynthScene() {
   return (
     <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, pointerEvents: 'none', background: 'linear-gradient(to bottom, #0f0c29, #302b63, #240b36)' }}>
       <Canvas camera={{ position: [0, 2, 8], fov: 60 }}>
@@ -26,9 +34,7 @@ function SynthScene() {
         </Sphere>
         
         {/* Moving Grid */}
-        <group ref={gridRef}>
-          <Grid position={[0, -2, -10]} args={[50, 50]} sectionSize={1} cellColor="#00ffff" sectionColor="#ff00ff" fadeDistance={25} fadeStrength={1} />
-        </group>
+        <MovingGrid />
       </Canvas>
     </div>
   );

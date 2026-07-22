@@ -153,7 +153,7 @@ export default function Creative3D2({ data }) {
             </span>
           </motion.div>
 
-          <motion.nav initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }} style={{ display: "flex", gap: "28px", alignItems: "center", display: "none" }}>
+          <motion.nav initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }} style={{ gap: "28px", alignItems: "center", display: "none" }}>
             {/* Nav links on desktop, hidden on very small mobile for now */}
           </motion.nav>
           
