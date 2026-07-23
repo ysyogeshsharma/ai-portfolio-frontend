@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Sparkles, ArrowRight, Code, User, Briefcase, ChevronLeft, ChevronRight } from 'lucide-react';
 import { API_BASE_URL } from '../config';
+import AppHeader from '../components/AppHeader';
 
 const PORTFOLIO_TEMPLATES = [
   { id: 'creative3d', name: '3D Creative', desc: 'Modern, interactive abstract spheres' },
@@ -30,6 +31,12 @@ const PORTFOLIO_TEMPLATES = [
 ];
 
 const RESUME_TEMPLATES = [
+  { id: 'resume_classic_ai', name: 'AI Classic', desc: 'Premium Times format with professional summary' },
+  { id: 'resume_modern_ai', name: 'AI Modern Dark', desc: 'Sleek header with dark contrast background' },
+  { id: 'resume_sidebar_ai', name: 'AI Two Column', desc: 'Elegant left-split layout with sidebar metadata' },
+  { id: 'resume_minimalist_ai', name: 'AI Minimalist', desc: 'Clean, elegant serif typography with spacing' },
+  { id: 'resume_bold_ai', name: 'AI Bold Accent', desc: 'Modern layout with bold blue highlights' },
+  { id: 'resume_executive_ai', name: 'AI Executive', desc: 'Traditional Palatino serif for top professionals' },
   { id: 'resume_classic', name: 'Classic ATS', desc: 'Clean, traditional, ATS-friendly PDF' },
   { id: 'resume_modern', name: 'Modern', desc: 'Sleek two-column design with a touch of color' },
   { id: 'resume_tech', name: 'Developer', desc: 'Minimalist monospace format for tech roles' },
@@ -68,6 +75,12 @@ export default function Home() {
   const navigate = useNavigate();
 
   const handleFileUpload = async (e) => {
+    const email = localStorage.getItem('userEmail');
+    if (!email) {
+      navigate('/login');
+      return;
+    }
+
     const file = e.target.files[0];
     if (!file) return;
     if (file.type !== 'application/pdf') {
@@ -84,6 +97,9 @@ export default function Home() {
     try {
       const response = await fetch(`${API_BASE_URL}/upload-resume`, {
         method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${email}`
+        },
         body: uploadData,
       });
 
@@ -173,6 +189,12 @@ export default function Home() {
 
   const handleGenerate = async (e) => {
     e.preventDefault();
+    const email = localStorage.getItem('userEmail');
+    if (!email) {
+      navigate('/login');
+      return;
+    }
+
     setLoading(true);
     setError('');
 
@@ -180,7 +202,10 @@ export default function Home() {
       const payload = { ...formData, experiences, builderType, linkedin: ensureAbsoluteUrl(formData.linkedin) };
       const response = await fetch(`${API_BASE_URL}/generate`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${email}`
+        },
         body: JSON.stringify(payload),
       });
 
@@ -220,8 +245,9 @@ export default function Home() {
   };
 
   return (
-    <div style={{ width: '100%', height: '100%', overflowY: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-      <div style={{ width: '100%', maxWidth: '1200px', padding: '60px 20px 60px 20px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+    <div style={{ width: '100%', height: '100%', overflowY: 'auto', display: 'flex', flexDirection: 'column' }}>
+      <AppHeader />
+      <div style={{ width: '100%', maxWidth: '1200px', margin: '0 auto', padding: '60px 20px 60px 20px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
       
       <div style={{ textAlign: 'center', marginBottom: '40px' }} className="fade-in">
         <h1 className="gradient-text" style={{ fontSize: '3rem', marginBottom: '10px' }}>

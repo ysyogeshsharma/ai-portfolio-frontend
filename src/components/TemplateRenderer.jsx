@@ -39,6 +39,14 @@ import ChronologicalPro from "../templates/ChronologicalPro";
 import Creative3D2 from "../templates/Creative3D2";
 import CyberMatrixTemplate from "../templates/CyberMatrix";
 import EtherealTemplate from "../templates/Ethereal";
+import {
+  TemplateClassic as AIClassic,
+  TemplateModern as AIModern,
+  TemplateSidebar as AISidebar,
+  TemplateMinimalist as AIMinimalist,
+  TemplateBoldAccent as AIBold,
+  TemplateExecutive as AIExecutive
+} from "../templates/AiResumeTemplates";
 
 const templateMap = {
   // Resumes
@@ -59,6 +67,14 @@ const templateMap = {
   resume_bold: BoldResume,
   resume_twocolumn_minimal: TwoColumnMinimal,
   resume_chronological: ChronologicalPro,
+
+  // New AI Resume templates
+  resume_classic_ai: AIClassic,
+  resume_modern_ai: AIModern,
+  resume_sidebar_ai: AISidebar,
+  resume_minimalist_ai: AIMinimalist,
+  resume_bold_ai: AIBold,
+  resume_executive_ai: AIExecutive,
 
   // Portfolios
   creative3d: Creative3DTemplate,
